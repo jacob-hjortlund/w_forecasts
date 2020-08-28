@@ -14,7 +14,6 @@ r_fid = 147.78
 
 # ---- Functions ----
 
-
 def H_LambdaCDM(z, H_0, O_m, O_k):
     """Calculates Hubble parameter for Lamba CDM cosmology at given redshifts
      and chosen cosmological parameters.
@@ -103,8 +102,9 @@ def TimeDelayDistance(z_l, z_s, z, Dm_array, H_0, O_k):
     Dm_l = Dm_array[z == z_l]
     Dm_s = Dm_array[z == z_s]
 
-    # TO DO: Finish this lol
-    Da_ls = 1 / (1 + z_l) * (Dm_s * np.sqrt(1 + O_k *) )
+    # TO DO: Reread Peebles for derivation
+    Da_ls = 1 / (1 + z_l) * ( Dm_s * (1 + O_k * (Dm_l * H_0 / c)**2 )**0.5 
+    - Dm_l * (1 + O_k * (Dm_s * H_0 / c)**2 )**0.5)
 
     Ddt = (1+z_l) * Da_l * Da_s / Da_ls
 
