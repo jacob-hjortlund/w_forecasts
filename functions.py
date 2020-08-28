@@ -2,6 +2,8 @@ import numpy as np
 import scipy as sp
 from scipy.integrate import cumtrapz
 
+# ----------------------------------------------------------------------------------
+
 # ---- Constants ----
 
 # speed of light in km / s
@@ -76,9 +78,9 @@ def TimeDelayDistance(z_l, z_s, z, Dm_array, H_0, O_k):
     and comoving distances.
 
     Arguments:
-        z_l : (N,) ndarray
+        z_l : float
             Lens redshifts
-        z_s : (M,) ndarray
+        z_s : float
             Source redshifts
         z : (K,) ndarray
             Total array of redshifst
@@ -91,8 +93,8 @@ def TimeDelayDistance(z_l, z_s, z, Dm_array, H_0, O_k):
 
 
     Returns:
-        Ddt: ndarray
-            Time delay distances
+        Ddt: float
+            Time delay distance
     """
 
     Da_array = Dm_array / (1 + z_l)
